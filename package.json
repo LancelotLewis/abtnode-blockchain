@@ -10,7 +10,7 @@
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
-    "bundle": "npm run clean && abtnode bundle --zip --create-release",
+    "bundle": "npm run clean && npm run build && abtnode bundle --zip --create-release",
     "deploy": "npm run bundle && abtnode deploy .blocklet/bundle"
   },
   "dependencies": {
