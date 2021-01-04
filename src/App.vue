@@ -1,18 +1,24 @@
 <template>
   <v-app>
-    <v-btn href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank" text>
-      <span class="mr-2">Latest Release</span>
-      <v-icon>fas fa-external-link-alt</v-icon>
-    </v-btn>
+    <!-- <v-navigation-drawer app></v-navigation-drawer> -->
+
+    <v-app-bar app centered>
+      Abtnode application for blockchain
+    </v-app-bar>
+    <v-main>
+      <v-container fluid>
+        <router-view />
+      </v-container>
+    </v-main>
+
+    <v-footer app>
+      Footer
+    </v-footer>
   </v-app>
 </template>
 
 <script>
 export default {
   name: 'App',
-
-  data: () => ({
-    //
-  }),
 };
 </script>
