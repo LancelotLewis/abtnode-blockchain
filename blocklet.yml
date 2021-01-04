@@ -2,8 +2,19 @@ name: abtnode-blockchain
 description: A blocklet demo for blockchain
 group: static
 main: dist
+files:
+  - dist/
+  - blocklet.yml
+  - blocklet.md
+  - README.md
+keywords:
+  - demo
+  - game
+  - blocklet
 author:
-  name: lancelot_lewis
+  name: LancelotLewis
+  email: lancelot_lewis@163.com
+  url: 'http://github.com/LancelotLewis'
 scripts:
   dev: npm run dev
 specVersion: 1.0.0
