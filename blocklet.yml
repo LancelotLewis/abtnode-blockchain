@@ -1,0 +1,20 @@
+name: abtnode-blockchain
+description: A blocklet demo for blockchain
+group: static
+main: dist
+author:
+  name: lancelot_lewis
+scripts:
+  dev: npm run dev
+specVersion: 1.0.0
+version: 0.1.0
+files:
+  - blocklet.md
+  - screenshots
+interfaces:
+  - type: web
+    name: publicUrl
+    path: /
+    prefix: '*'
+    port: BLOCKLET_PORT
+    protocol: http
