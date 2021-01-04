@@ -1,5 +1,6 @@
 module.exports = {
   transpileDependencies: ['vuetify'],
+  publicPath: './',
   devServer: {
     port: 8000,
     compress: true,
