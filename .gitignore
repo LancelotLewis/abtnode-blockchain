@@ -27,3 +27,4 @@ pnpm-debug.log*
 
 .abtnode
 .blocklet
+coverage
