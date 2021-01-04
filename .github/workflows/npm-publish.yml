@@ -15,6 +15,9 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
+      - name: Test
+        run: make github-action-init
+
       - name: Release to Github
         uses: blocklet/action-release-to-github@v1.0.0
         with:
