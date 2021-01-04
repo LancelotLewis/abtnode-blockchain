@@ -70,6 +70,7 @@ export default {
       }
       const info = {
         Hash: props.data.hash,
+        'Prev Block': props.data.prev_block,
         Confirmations: formatNumber(confirmations),
         Timestamp: formatDate(props.data.time * 1000),
         Height: props.data.height,

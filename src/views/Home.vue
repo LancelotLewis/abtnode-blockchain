@@ -6,7 +6,8 @@
       dense
       clearable
       prepend-inner-icon="mdi-magnify"
-      placeholder="Search your transaction, an address or a block"
+      placeholder="Search a block"
+      @keyup.enter="searchFn"
     />
     <template v-if="!loading">
       <detail-block :data="dataInfo" />
@@ -38,7 +39,10 @@ export default {
     const inputStr = ref('00000000000000000007878ec04bb2b2e12317804810f4c26033585b3f81ffaa');
     const dataInfo = ref({});
 
-    onBeforeMount(async () => {
+    onBeforeMount(searchFn);
+
+    async function searchFn() {
+      if (!unref(inputStr)) return;
       loading.value = true;
       const data = await blockchainApi.getBlock(unref(inputStr));
       dataInfo.value = data;
@@ -46,13 +50,14 @@ export default {
       page.value.index = 1;
 
       loading.value = false;
-    });
+    }
 
     return {
       loading,
       page,
       inputStr,
       dataInfo,
+      searchFn,
     };
   },
 };
