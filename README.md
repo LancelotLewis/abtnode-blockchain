@@ -1,4 +1,6 @@
-# abtnode
+# abtnode blockchain
+
+Demo blocklet contains only static files, which is a blockchain query page
 
 ## Install on my ABT Node
 

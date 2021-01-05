@@ -7,10 +7,26 @@
       clearable
       prepend-inner-icon="mdi-magnify"
       placeholder="Search a block"
+      :loading="loading"
       @keyup.enter="searchFn"
+      @click:prepend-inner="searchFn"
     />
-    <template v-if="!loading">
-      <detail-block :data="dataInfo" />
+
+    <template v-if="loading">
+      <v-skeleton-loader
+        class="mx-auto"
+        type="table-tbody"
+        width="100%"
+        :types="{
+          paragraph: 'text@10',
+          'table-tbody': 'table-row-divider@10',
+          'table-row': 'table-cell',
+          'table-cell': 'text',
+        }"
+      />
+    </template>
+    <template v-else>
+      <detail-block :data="dataInfo" @search="toSearchFn" />
       <block-transaction :data="dataInfo" />
     </template>
   </div>
@@ -51,6 +67,10 @@ export default {
 
       loading.value = false;
     }
+    function toSearchFn(str) {
+      inputStr.value = str;
+      searchFn();
+    }
 
     return {
       loading,
@@ -58,7 +78,17 @@ export default {
       inputStr,
       dataInfo,
       searchFn,
+      toSearchFn,
     };
   },
 };
 </script>
+
+<style lang="scss">
+$skeleton-loader-table-cell-width: 100%;
+.page-home {
+  width: 80%;
+  max-width: 1200px;
+  margin: auto;
+}
+</style>

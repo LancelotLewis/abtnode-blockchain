@@ -9,8 +9,8 @@ files:
   - README.md
 keywords:
   - demo
-  - game
   - blocklet
+  - blockchain
 author:
   name: LancelotLewis
   email: lancelot_lewis@163.com
@@ -18,7 +18,7 @@ author:
 scripts:
   dev: npm run dev
 specVersion: 1.0.0
-version: 0.1.3
+version: 0.1.4
 files:
   - blocklet.md
 interfaces:

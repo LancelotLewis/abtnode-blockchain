@@ -2,7 +2,9 @@
   <div class="transaction-item">
     <div class="transaction-item__header">
       <span class="transaction-item__gap">Hash</span>
-      <span class="transaction-item__hash transaction-item__stretch">{{ data.hash }}</span>
+      <span class="transaction-item__hash transaction-item__stretch">
+        {{ data.hash }}
+      </span>
       <span class="transaction-item__gap"></span>
       <span class="transaction-item__right transaction-item__stretch">
         {{ formatDate(data.time * 1000) }}
@@ -14,7 +16,7 @@
       <ul class="transaction-item__stretch transaction-item__spent-list">
         <li v-for="(item, index) in data.inputs" :key="index" class="transaction-item__spent-item">
           <template v-if="!item.prev_out">
-            COINBASE (Newly Generated Coins)
+            <span class="green--text">COINBASE (Newly Generated Coins)</span>
           </template>
           <template v-else>
             <span class="transaction-item__spent-addr">{{ item.prev_out.addr }}</span>
@@ -36,7 +38,7 @@
       <ul class="transaction-item__stretch transaction-item__spent-list">
         <li v-for="item in data.out" :key="item.n" class="transaction-item__spent-item">
           <template v-if="item.addr === 'null'">
-            Unable to decode output address
+            <span class="red--text">Unable to decode output address</span>
           </template>
           <template v-else>
             <span class="transaction-item__spent-addr">{{ item.addr }}</span>
@@ -66,7 +68,7 @@
       </span>
       <span class="transaction-item__gap"></span>
       <span class="transaction-item__right transaction-item__stretch">
-        {{ formatBTC(totalSpent) }} BTC
+        <span class="transaction-item__BTC"> {{ formatBTC(totalSpent) }} BTC </span>
       </span>
     </div>
   </div>
@@ -125,7 +127,10 @@ export default {
   align-items: flex-start;
 }
 .transaction-item__body {
-  padding: 7px 0;
+  padding: 15px 0;
+}
+.transaction-item__footer {
+  font-size: 14px;
 }
 .transaction-item__hash {
   overflow: hidden;
@@ -152,5 +157,12 @@ export default {
   text-overflow: ellipsis;
   flex: 1;
   white-space: nowrap;
+}
+.transaction-item__BTC {
+  background-color: #d1f0db;
+  color: #00875a;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  display: inline-block;
 }
 </style>
